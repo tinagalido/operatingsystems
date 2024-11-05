@@ -1,0 +1,106 @@
+/**
+ * Submitted by: Maria Cristina Galido (2092015); 
+ * Shabnam Alizadeh (2084527); 
+ * Romina Sharifi (2055127)
+ * 
+ * Compiled by executing: gcc sh.c
+ * Run by executing: ./a.out
+ * Result: The new shell will display and ready for any commands to be executed
+ * (Task 1): Execute any single command like ls, pwd, among others.
+ * (Task 2): Execute redirection using the '>' or '<' commands
+ * (Task 3): Execute pipe execution using the '|' command
+*/
+
+• Include a README file describing any features implemented and the testing
+process.
+
+A. Features in the file
+
+    - Execute simple commands like 'ls', 'pwd', 'echo', and other generic commands
+    - Utilize I/O redirection using the '>' for output redirection and '<' for input redirection
+    - Implement pipe function using the '|' character
+
+B. Compiling and Running
+
+    1. Compiling the program
+        
+        To compile the program, execute the following:
+
+        user@ubuntu22:~$ gcc sh.c
+
+        Note: There should be no error displayed. The compiled program will then 
+        generate an "a.out" file. 
+
+    2. Running the program
+
+        Before running the program, make sure there is a generated file after successful compilation. In this case, it should be "a.out" file. 
+        To run the program, execute the following:
+
+        user@ubuntu22:~$ ./a.out
+
+        Result: The new shell will display and this is where commands can be executed and run.
+
+C. Testing
+
+    1. To run a generic command or a single command, execute the command as it is:
+
+        Example (1): This will display the files and directories
+        $ ls  
+        a.out  input.sh  input.txt  sample.c  sh2.c  sh.c  sh_msdos.c  temp.txt  t.sh  y  y1
+            
+        Example (2): This will display the files and directories in a sorted way
+        $ ls -al 
+        total 84
+        drwxrwxr-x 2 mgalido mgalido  4096 Feb 19 21:17 .
+        drwxrwxr-x 5 mgalido mgalido  4096 Feb 13 20:40 ..
+        -rwxrwxr-x 1 mgalido mgalido 17552 Feb 19 21:17 a.out
+        -rw-rw-r-- 1 mgalido mgalido     2 Feb 15 22:10 input.sh
+        -rw-rw-r-- 1 mgalido mgalido    12 Feb 15 22:31 input.txt
+        -rw-rw-r-- 1 mgalido mgalido  6264 Feb 13 20:38 sample.c
+        -rwxrwx--- 1 mgalido mgalido  6414 Feb 19 20:57 sh2.c
+        -rwxrwx--- 1 mgalido mgalido  7153 Feb 19 21:17 sh.c
+        -rwxrwx--- 1 mgalido mgalido  8047 Feb 13 12:24 sh_msdos.c
+        -rw-rw-r-- 1 mgalido mgalido  1980 Feb 19 16:12 temp.txt
+        -rwxrwx--- 1 mgalido mgalido    78 Feb 15 16:00 t.sh
+        -rw-r--r-- 1 mgalido mgalido   561 Feb 19 20:42 y
+        -rw-r--r-- 1 mgalido mgalido    24 Feb 19 20:59 y1
+
+        Example (3): This will display the present working directory
+        $ pwd 
+        /home/mgalido/Documents/spring2024/csci6638_v2
+
+    2. To run redirection using '>' or '<', execute the command with the input or output file as needed:
+
+        Example (1): This will write the present working directory in the file y
+        $ pwd > y2 
+
+        Example (2): This will concatenate and display the file y2
+        $ cat < y2 
+        /home/mgalido/Documents/spring2024/csci6638_v2
+
+    3. To run pipe implementation using '|', execute the command with commands on both left and right of the pipe
+
+        Example (1): This will list files & search for files/directories with 'sample' name on it
+        $ ls -al | grep sample
+        -rw-rw-r-- 1 mgalido mgalido  6264 Feb 13 20:38 sample.c
+
+        Example (2): This will list files & sort alphabetically
+        $ ls | sort
+        a.out
+        input.sh
+        input.txt
+        README
+        sample.c
+        sh2.c
+        sh.c
+        sh_msdos.c
+        temp.txt
+        t.sh
+        y2
+        y3.txt
+
+
+
+
+
+

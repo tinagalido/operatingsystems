@@ -1,0 +1,96 @@
+/**
+ * Submitted by: Maria Cristina Galido (2092015); 
+ * Shabnam Alizadeh (2084527); 
+ * Romina Sharifi (2055127)
+ * 
+ * Compile by executing the Makefile, designed to work with the provided ph.c file
+ * Run the following commands to run the code for 1,2 and 4 threads.
+ * make run1
+ * make run2
+ * make run4
+**/
+
+A. Features
+
+    1. Identifying the problem
+
+    - Why are there missing keys with 2 or more threads, but not with 1 thread?
+    - Investigate and identify the sequence of events that lead to missing keys for 2 and
+        4 threads but not for 1 thread.
+
+    2. Implementing the locks
+    - Insert lock and unlock statements in put and get to ensure that the number of keys
+        missing is always 0
+    - Use pthread calls for locking and unlocking
+
+B. Compiling and Running
+
+    1. Compiling the program
+        
+        To compile the program, execute the following:
+
+        user@ubuntu22:~$ make
+
+        gcc  ph.c -o a2.out
+
+    2. Running the program
+
+        Before running the program, make sure there is a generated file after successful compilation. In this case, it should be "a2.out" file. 
+        To run the program, execute the following according to the following format
+        
+        Format: make <numberOfThreads>
+        
+        where numberOfThreads = number of threads (run1 for 1 thread, run2 for 2 threads, etc.)
+
+        user@ubuntu22:~$ make run1
+
+        ./a2.out 1
+        0: put time = 5.809688
+        0: lookup time = 14.645099
+        0: 0 keys missing
+        completion time = 20.455509
+
+        Result: The put time, lookup time, completion time will be displayed. The keys missing will also be displayed
+
+        Note: Run the following command to clean the out file.
+
+        user@ubuntu22:~$ make clean
+
+C. Testing
+
+    1. To run or test for 2 threads:
+
+        ./a2.out 2
+        0: put time = 10.004726
+        1: put time = 10.496859
+        0: lookup time = 45.398219
+        0: 0 keys missing
+        1: lookup time = 46.967151
+        1: 0 keys missing
+        completion time = 57.464849
+
+    2. To run or test for 4 threads:
+
+        ./a2.out 4
+        3: put time = 6.434560
+        2: put time = 8.775954
+        1: put time = 8.910787
+        0: put time = 8.972762
+        2: lookup time = 69.331872
+        2: 0 keys missing
+        1: lookup time = 75.700126
+        1: 0 keys missing
+        3: lookup time = 76.305594
+        3: 0 keys missing
+        0: lookup time = 78.968910
+        0: 0 keys missing
+        completion time = 87.945022
+
+
+        
+
+
+
+
+
+
